@@ -19,14 +19,14 @@ namespace MyTaskApi.Controllers
         public ActionResult<TaskDto> CreateTask(CreateTaskDto dto)
         {
             var result = _taskService.CreateTask(dto);
-            return CreatedAtAction(nameof(GetById), new { id = result.Id }, result);
+            return CreatedAtAction(nameof(GetTaskById), new { id = result.Id }, result);
         }
 
         [HttpGet]
         public ActionResult<IEnumerable<TaskDto>> GetAllTask() => Ok(_taskService.GetAllTask());
 
         [HttpGet("{id}")]
-        public ActionResult<TaskDto> GetById(Guid id)
+        public ActionResult<TaskDto> GetTaskById(Guid id)
         {
             var task = _taskService.GetTask(id);
             if (task == null)
