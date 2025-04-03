@@ -16,14 +16,14 @@ namespace MyTaskApi.Controllers
         }
 
         [HttpPost]
-        public ActionResult<TaskDto> Create(CreateTaskDto dto)
+        public ActionResult<TaskDto> CreateTask(CreateTaskDto dto)
         {
             var result = _taskService.CreateTask(dto);
             return CreatedAtAction(nameof(GetById), new { id = result.Id }, result);
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<TaskDto>> GetAll() => Ok(_taskService.GetAllTask());
+        public ActionResult<IEnumerable<TaskDto>> GetAllTask() => Ok(_taskService.GetAllTask());
 
         [HttpGet("{id}")]
         public ActionResult<TaskDto> GetById(Guid id)
@@ -37,7 +37,7 @@ namespace MyTaskApi.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(Guid id)
+        public IActionResult DeleteTask(Guid id)
         {
             bool deleted = _taskService.DeleteTask(id);
             if (deleted)
@@ -48,7 +48,7 @@ namespace MyTaskApi.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(Guid id, UpdateTaskDto dto)
+        public IActionResult UpdateTask(Guid id, UpdateTaskDto dto)
         {
             bool updated = _taskService.UpdateTask(id, dto);
             if (updated)
@@ -59,14 +59,14 @@ namespace MyTaskApi.Controllers
         }
 
         [HttpPost("bulk")]
-        public IActionResult BulkAdd(IEnumerable<CreateTaskDto> tasks)
+        public IActionResult BulkAddTask(IEnumerable<CreateTaskDto> tasks)
         {
             _taskService.BulkAddTask(tasks);
             return Ok();
         }
 
         [HttpDelete("bulk")]
-        public IActionResult BulkDelete([FromBody] IEnumerable<Guid> ids)
+        public IActionResult BulkDeleteTask([FromBody] IEnumerable<Guid> ids)
         {
             _taskService.BulkDeleteTask(ids);
             return NoContent();
