@@ -30,7 +30,11 @@ namespace MyTaskApi.Services
         public TaskDto? GetTask(Guid id)
         {
             var task = _taskRepository.GetTask(id);
-            return task == null ? null : MapToDto(task);
+            if (task == null)
+            {
+                return null;
+            }
+            return MapToDto(task);
         }
 
         public bool DeleteTask(Guid id) => _taskRepository.DeleteTask(id);

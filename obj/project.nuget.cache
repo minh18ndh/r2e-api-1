@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "enpgkHY1jRg=",
+  "dgSpecHash": "MOgiGYsVfYM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\minhn\\Downloads\\MyTaskApi\\MyTaskApi.csproj",
+  "projectFilePath": "C:\\Users\\minhn\\Downloads\\r2e-api-1\\MyTaskApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\minhn\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.14\\microsoft.aspnetcore.openapi.8.0.14.nupkg.sha512",
     "C:\\Users\\minhn\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

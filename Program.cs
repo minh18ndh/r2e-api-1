@@ -1,9 +1,17 @@
+using MyTaskApi.Interfaces;
+using MyTaskApi.Repositories;
+using MyTaskApi.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddControllers();
+
+builder.Services.AddSingleton<ITaskRepository, TaskRepository>();
+builder.Services.AddScoped<ITaskService, TaskService>();
 
 var app = builder.Build();
 
@@ -35,7 +43,7 @@ app.UseHttpsRedirection();
 // })
 // .WithName("GetWeatherForecast")
 // .WithOpenApi();
-
+app.MapControllers();
 app.Run();
 
 // record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
